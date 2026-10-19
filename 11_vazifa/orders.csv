@@ -1,0 +1,8 @@
+order_id,product_name,category,quantity,price,customer,date
+101,Smartfon,Elektronika,1,3500000,Jasur,2026-10-15
+102,Krossovka,Kiyim,2,450000,Malika,2026-10-16
+103,Noutbuk,Elektronika,1,8500000,Anvar,2026-10-17
+104,Futbolka,Kiyim,3,120000,Dilshod,2026-10-18
+105,Shokolad,Oziq-ovqat,5,25000,Jasur,2026-10-19
+106,Olma,Meva,2,12000,Muhammadbilol,2026.10.18
+107,Behi,Meva,3,25000,Muhammadbilol,2026.10.15
