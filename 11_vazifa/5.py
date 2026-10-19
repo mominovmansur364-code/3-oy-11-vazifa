@@ -90,18 +90,29 @@ def max_product():
     try:
         with open("11_vazifa/orders.csv","r",encoding="UTF-8") as f:
             data=list(csv.DictReader(f))
-            eng_qimmat=0
-            eng_qimmat_nomi=""
+            if not data:
+                print("Hech narsa topilmadi!")
+                return
+            
+            eng_qimmat_buyurtma = data[0]
+            max_summa = int(data[0]['quantity']) * int(data[0]['price'])
 
             for i in data:
-                if int(i['price'])>int(eng_qimmat):
-                    eng_qimmat=i["price"]
-                    eng_qimmat_nomi=i
-            print(f"Eng qimmat mahsulot nomi: {eng_qimmat_nomi['product_name']}")
-            print(f"Narxi: {eng_qimmat}")
-
+                joriy_summa = int(i['quantity']) * int(i['price'])
+                if joriy_summa > max_summa:
+                    max_summa = joriy_summa
+                    eng_qimmat_buyurtma = i
+                    
+            print("="*20)
+            print(f"Eng qimmat buyurtma tafsilotlari:")
+            print(f"Mahsulot nomi: {eng_qimmat_buyurtma['product_name']}")
+            print(f"Kategoriyasi: {eng_qimmat_buyurtma['category']}")
+            print(f"Xaridor: {eng_qimmat_buyurtma['customer']}")
+            print(f"Soni: {eng_qimmat_buyurtma['quantity']} ta")
+            print(f"Umumiy xarid summasi: {max_summa} so'm")
+            print("="*20)
     except FileNotFoundError:
-        print("Xatolik!")
+        print("Xatolik! Fayl topilmadi.")
 
 while True:
     print("========MENYU========")
