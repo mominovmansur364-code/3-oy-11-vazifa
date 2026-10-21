@@ -36,6 +36,9 @@ def search_book():
     try:
         with open("11_vazifa/books.csv","r",encoding="UTF-8") as f:
             data=list(csv.DictReader(f))
+            if not data:
+                print("Fayl bo'sh")
+                return
 
             qidiruv=input("Qidirayotgan kibobingizni muallifini kiriting:")
             topildi=0

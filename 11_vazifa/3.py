@@ -2,7 +2,7 @@ import csv
 
 def add_product():
     try:
-        f = open("11_vazifa/expenses.csv", "r", encoding="UTF-8")
+        f = open("11_vazifa/expenses.csv", "r", encoding="UTF-8",newline="")
         f.close() 
     except FileNotFoundError:
         with open("11_vazifa/expenses.csv","w",encoding="UTF-8",newline="") as f:

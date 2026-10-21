@@ -1,5 +1,5 @@
 import csv
-
+ 
 def yangi_buyurtma():
     try:
         f = open("11_vazifa/orders.csv", "r", encoding="UTF-8")
@@ -68,21 +68,25 @@ def umumiy_savdo():
     try:
         with open("11_vazifa/orders.csv","r",encoding="UTF-8") as f:
             data=list(csv.DictReader(f))
-            umumiy=0
-            jami=0
-            soni=0
+            if not data:
+                print("Hech narsa topilmadi!")
+                return
+            
+            umumiy_tushum = 0
+            soni = 0
             print("="*20)
             for i in data:
-                soni+=1
-                jami+=int(i['quantity'])*int(i['price']) 
-                umumiy+=jami
+                soni += 1
+                qator_summasi = int(i['quantity']) * int(i['price'])
+                umumiy_tushum += qator_summasi 
                 print(f"Mahsulot nomi: {i['product_name']}")
-                print(f"Umumiy summasi: {jami}")
+                print(f"Umumiy summasi: {qator_summasi}")
                 print("="*20)
-            ortacha=umumiy/soni
-            print(f"Mahsulotlarning umumiy summasi: {umumiy}")
+                
+            ortacha = umumiy_tushum / soni if soni > 0 else 0
+            print(f"Mahsulotlarning umumiy summasi: {umumiy_tushum}")
             print(f"Sotilgan mahsulotlar soni: {soni}")
-            print(f"O'rtacha sotuv summasi: {round(ortacha):.2f}")
+            print(f"O'rtacha sotuv summasi: {round(ortacha, 2)}")
     except FileNotFoundError:
         print("Xatolik!")
 
